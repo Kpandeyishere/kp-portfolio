@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SHOWREEL_POSTER, SHOWREEL_SRC } from "@/data/portfolio";
 import { VideoModal } from "./VideoModal";
 import { FilmGrain } from "./FilmGrain";
@@ -7,6 +7,28 @@ import { SectionMarker } from "./SectionHeading";
 
 export function ShowreelSection() {
   const [open, setOpen] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.muted = true;
+    video.defaultMuted = true;
+
+    const tryPlay = () => {
+      video.play().catch((error) => {
+        console.warn("Showreel autoplay was blocked:", error);
+      });
+    };
+
+    tryPlay();
+    video.addEventListener("canplay", tryPlay);
+
+    return () => {
+      video.removeEventListener("canplay", tryPlay);
+    };
+  }, []);
 
   return (
     <section
@@ -43,6 +65,7 @@ export function ShowreelSection() {
         >
           <span className="vignette relative block aspect-[4/5] w-full overflow-hidden bg-black sm:aspect-[16/9] lg:aspect-[21/9]">
             <video
+              ref={videoRef}
               className="absolute inset-0 h-full w-full object-cover"
               src={SHOWREEL_SRC}
               autoPlay
@@ -50,7 +73,13 @@ export function ShowreelSection() {
               loop
               playsInline
               preload="auto"
-              aria-hidden="true"
+              onCanPlay={(event) => {
+                const video = event.currentTarget;
+                video.muted = true;
+                void video.play().catch((error) => {
+                  console.warn("Showreel playback failed:", error);
+                });
+              }}
             />
 
             <FilmGrain position="absolute" opacity={0.08} />
