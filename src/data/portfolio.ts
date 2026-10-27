@@ -22,10 +22,6 @@ export type VideoProject = {
   readonly videoSrc: string;
 };
 
-/**
- * PHOTO PROJECTS
- * Uses the exact filenames currently present in Cloudflare R2.
- */
 export const photoProjects: readonly PhotoProject[] = [
   {
     id: "ph-01",
@@ -87,54 +83,8 @@ export const photoProjects: readonly PhotoProject[] = [
     category: "Photo Manipulation",
     image: r2Asset("Self Manipulation .jpg"),
   },
-  {
-    id: "ph-11",
-    title: "Creative Work 01",
-    category: "Photo Editing",
-    image: r2Asset("work-01.jpg"),
-  },
-  {
-    id: "ph-12",
-    title: "Creative Work 02",
-    category: "Photo Manipulation",
-    image: r2Asset("work-02.jpg"),
-  },
-  {
-    id: "ph-13",
-    title: "Creative Work 03",
-    category: "Photo Manipulation",
-    image: r2Asset("work-03.jpg"),
-  },
-  {
-    id: "ph-14",
-    title: "Creative Work 04",
-    category: "Photo Editing",
-    image: r2Asset("work-04.jpg"),
-  },
-  {
-    id: "ph-15",
-    title: "Creative Work 05",
-    category: "Photo Editing",
-    image: r2Asset("work-05.jpg"),
-  },
-  {
-    id: "ph-16",
-    title: "Creative Work 06",
-    category: "Photo Editing",
-    image: r2Asset("work-06.jpg"),
-  },
-  {
-    id: "ph-17",
-    title: "Creative Work 07",
-    category: "Photo Editing",
-    image: r2Asset("work-07.jpg"),
-  },
 ];
 
-/**
- * VIDEO PROJECTS
- * Uses filenames confirmed in the R2 folder listing.
- */
 export const videoProjects: readonly VideoProject[] = [
   {
     id: "vd-client-gym",
