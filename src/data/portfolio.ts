@@ -1,4 +1,3 @@
-
 const R2_BASE_URL =
   "https://pub-6f377ff8bf0241edba33c58598adae5a.r2.dev/kp%20works";
 
@@ -25,132 +24,147 @@ export type VideoProject = {
 
 /**
  * PHOTO PROJECTS
- * Ordered by aspect-ratio groups:
- * 16:9 landscape → 3:2 landscape → portrait.
- * Numbered filenames retain their original numbers.
+ * Uses the exact filenames currently present in Cloudflare R2.
  */
 export const photoProjects: readonly PhotoProject[] = [
-  // LANDSCAPE — 16:9
   {
-    id: "ph-02",
-    title: "Before After Squid Game 2",
+    id: "ph-01",
+    title: "Before After Squid Game",
     category: "Photo Edit",
-    image: r2Asset("Before After Squid Game2.jpg"),
+    image: r2Asset("Before After Squid Game.jpg"),
   },
   {
-    id: "ph-03",
+    id: "ph-02",
     title: "Thumbnail 3",
     category: "Thumbnail Design",
     image: r2Asset("Thumbnail 3.jpg"),
   },
   {
-    id: "ph-07",
-    title: "Jonathan Gaming Thumbnail 7",
+    id: "ph-03",
+    title: "Jonathan Gaming Thumbnail",
     category: "Thumbnail Design",
-    image: r2Asset("Jonathan Gaming Thumbnail7.jpg"),
-  },
-  {
-    id: "ph-08",
-    title: "Pinboard Thumbnail 8",
-    category: "Thumbnail Design",
-    image: r2Asset("Pinboard Thumbnail8.jpg"),
-  },
-  {
-    id: "ph-work-01",
-    title: "Creative Work 01",
-    category: "Photo Editing",
-    image: r2Asset("work-01.jpg"),
-  },
-  {
-    id: "ph-work-04",
-    title: "Creative Work 04",
-    category: "Photo Editing",
-    image: r2Asset("work-04.jpg"),
-  },
-  {
-    id: "ph-work-05",
-    title: "Creative Work 05",
-    category: "Photo Editing",
-    image: r2Asset("work-05.jpg"),
-  },
-  {
-    id: "ph-work-06",
-    title: "Creative Work 06",
-    category: "Photo Editing",
-    image: r2Asset("work-06.jpg"),
-  },
-  {
-    id: "ph-work-07",
-    title: "Creative Work 07",
-    category: "Photo Editing",
-    image: r2Asset("work-07.jpg"),
-  },
-
-  // LANDSCAPE — 3:2
-  {
-    id: "ph-03-bsc",
-    title: "BSc Stats Thumbnail 3",
-    category: "Thumbnail Design",
-    image: r2Asset("Bsc stats thumbnail 3.png"),
+    image: r2Asset("Jonathan Gaming Thumbnail.jpg"),
   },
   {
     id: "ph-04",
-    title: "CM1 Lifetable 4",
-    category: "Graphic Design",
-    image: r2Asset("CM1 Lifetable 4.png"),
-  },
-
-  // PORTRAIT — approximately 2:3
-  {
-    id: "ph-05-poster",
-    title: "Dark Series Poster 5",
-    category: "Poster Design",
-    image: r2Asset("Dark Series Poster5.jpg"),
+    title: "Pinboard Thumbnail",
+    category: "Thumbnail Design",
+    image: r2Asset("Pinboard Thumbnail.jpg"),
   },
   {
-    id: "ph-work-03",
-    title: "Creative Work 03",
-    category: "Photo Manipulation",
-    image: r2Asset("work-03.jpg"),
-  },
-
-  // PORTRAIT — approximately 0.65–0.75 ratio
-  {
-    id: "ph-01",
-    title: "Aakansha Storybook 1",
-    category: "Creative Design",
-    image: r2Asset("Aakansha Storybook 1.jpg"),
+    id: "ph-05",
+    title: "BSc Stats Thumbnail",
+    category: "Thumbnail Design",
+    image: r2Asset("Bsc stats thumbnail 2.png"),
   },
   {
     id: "ph-06",
-    title: "Food Menu 6",
+    title: "CM1 Lifetable",
     category: "Graphic Design",
-    image: r2Asset("Food Menu6.jpg"),
+    image: r2Asset("CM1 Lifetable (2).png"),
   },
   {
-    id: "ph-self-manipulation",
+    id: "ph-07",
+    title: "Dark Series Poster",
+    category: "Poster Design",
+    image: r2Asset("Dark Series Poster.jpg"),
+  },
+  {
+    id: "ph-08",
+    title: "Aakansha Storybook",
+    category: "Creative Design",
+    image: r2Asset("Aakansha Storybook 2.jpg"),
+  },
+  {
+    id: "ph-09",
+    title: "Food Menu",
+    category: "Graphic Design",
+    image: r2Asset("Food Menu.jpg"),
+  },
+  {
+    id: "ph-10",
     title: "Self Manipulation",
     category: "Photo Manipulation",
     image: r2Asset("Self Manipulation .jpg"),
   },
   {
-    id: "ph-work-02",
+    id: "ph-11",
+    title: "Creative Work 01",
+    category: "Photo Editing",
+    image: r2Asset("work-01.jpg"),
+  },
+  {
+    id: "ph-12",
     title: "Creative Work 02",
     category: "Photo Manipulation",
     image: r2Asset("work-02.jpg"),
+  },
+  {
+    id: "ph-13",
+    title: "Creative Work 03",
+    category: "Photo Manipulation",
+    image: r2Asset("work-03.jpg"),
+  },
+  {
+    id: "ph-14",
+    title: "Creative Work 04",
+    category: "Photo Editing",
+    image: r2Asset("work-04.jpg"),
+  },
+  {
+    id: "ph-15",
+    title: "Creative Work 05",
+    category: "Photo Editing",
+    image: r2Asset("work-05.jpg"),
+  },
+  {
+    id: "ph-16",
+    title: "Creative Work 06",
+    category: "Photo Editing",
+    image: r2Asset("work-06.jpg"),
+  },
+  {
+    id: "ph-17",
+    title: "Creative Work 07",
+    category: "Photo Editing",
+    image: r2Asset("work-07.jpg"),
   },
 ];
 
 /**
  * VIDEO PROJECTS
- * Named edits first, followed by numbered videos.
- * The showreel remains featured separately above the projects.
+ * Uses filenames confirmed in the R2 folder listing.
  */
 export const videoProjects: readonly VideoProject[] = [
   {
     id: "vd-client-gym",
     title: "Client Gym Edit",
     videoSrc: r2Asset("Client Gym Edit.mp4"),
+  },
+  {
+    id: "vd-eyes-masking",
+    title: "Eyes Masking Edit",
+    videoSrc: r2Asset("Copy of Eyes Masking Edit.mp4"),
+  },
+  {
+    id: "vd-panels",
+    title: "Panels Trial Edit",
+    videoSrc: r2Asset("Copy of Panels Trial Edit Timeline.mp4"),
+  },
+  {
+    id: "vd-rapido",
+    title: "Rapido Edit",
+    videoSrc: r2Asset("Copy of RAPIDO EDIT12.mp4"),
+  },
+  {
+    id: "vd-self-shoot",
+    title: "Self Shoot + Edit",
+    videoSrc: r2Asset("Copy of Self Shoot + Edit.mp4"),
+  },
+  {
+    id: "vd-exam-series",
+    title: "Competitive Exams Series",
+    videoSrc: r2Asset("Copy of competitive exams series books timeline.mp4"),
   },
   {
     id: "vd-disappearing",
