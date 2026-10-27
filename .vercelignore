@@ -1,0 +1,11 @@
+﻿node_modules
+.output
+.wrangler
+.vercel
+.git
+.tanstack
+.vite
+coverage
+*.log
+.env
+.env.*
