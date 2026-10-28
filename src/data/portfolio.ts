@@ -1,3 +1,4 @@
+
 const R2_BASE_URL =
   "https://pub-6f377ff8bf0241edba33c58598adae5a.r2.dev/kp%20works";
 
@@ -87,34 +88,29 @@ export const photoProjects: readonly PhotoProject[] = [
 
 export const videoProjects: readonly VideoProject[] = [
   {
+    id: "vd-self-shoot-showreel",
+    title: "Self Shoot + Editing Showreel",
+    videoSrc: r2Asset("Copy of Self Shoot + Edit.mp4"),
+  },
+  {
     id: "vd-client-gym",
     title: "Client Gym Edit",
     videoSrc: r2Asset("Client Gym Edit.mp4"),
   },
   {
+    id: "vd-client-gym-2",
+    title: "Client Gym Edit 2",
+    videoSrc: r2Asset("Copy of Client Gym Edit (1).mp4"),
+  },
+  {
     id: "vd-eyes-masking",
-    title: "Eyes Masking Edit",
+    title: "Eye Masking Edit",
     videoSrc: r2Asset("Copy of Eyes Masking Edit.mp4"),
   },
   {
-    id: "vd-panels",
-    title: "Panels Trial Edit",
-    videoSrc: r2Asset("Copy of Panels Trial Edit Timeline.mp4"),
-  },
-  {
-    id: "vd-rapido",
-    title: "Rapido Edit",
-    videoSrc: r2Asset("Copy of RAPIDO EDIT12.mp4"),
-  },
-  {
-    id: "vd-self-shoot",
-    title: "Self Shoot + Edit",
+    id: "vd-self-shoot-edit",
+    title: "Self Shoot and Editing",
     videoSrc: r2Asset("Copy of Self Shoot + Edit.mp4"),
-  },
-  {
-    id: "vd-exam-series",
-    title: "Competitive Exams Series",
-    videoSrc: r2Asset("Copy of competitive exams series books timeline.mp4"),
   },
   {
     id: "vd-disappearing",
@@ -122,34 +118,19 @@ export const videoProjects: readonly VideoProject[] = [
     videoSrc: r2Asset("Disappearing Edit.mp4"),
   },
   {
-    id: "vd-01",
-    title: "Video 01",
-    videoSrc: r2Asset("video-01.mp4"),
+    id: "vd-rapido",
+    title: "Rapido Edit",
+    videoSrc: r2Asset("Copy of RAPIDO EDIT12.mp4"),
   },
   {
-    id: "vd-02",
-    title: "Video 02",
-    videoSrc: r2Asset("video-02.mp4"),
+    id: "vd-alpha-plus",
+    title: "Alpha Plus",
+    videoSrc: r2Asset("Alpha Plus.mp4"),
   },
   {
-    id: "vd-03",
-    title: "Video 03",
-    videoSrc: r2Asset("video-03.mp4"),
-  },
-  {
-    id: "vd-04",
-    title: "Video 04",
-    videoSrc: r2Asset("video04.mp4"),
-  },
-  {
-    id: "vd-05",
-    title: "Video 05",
-    videoSrc: r2Asset("video-05.mp4"),
-  },
-  {
-    id: "vd-06",
-    title: "Video 06",
-    videoSrc: r2Asset("video-06.mp4"),
+    id: "vd-alpha-plus-1",
+    title: "Alpha Plus 1",
+    videoSrc: r2Asset("Alpha Plus 1.mp4"),
   },
 ];
 
