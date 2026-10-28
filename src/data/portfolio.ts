@@ -1,4 +1,3 @@
-
 const R2_BASE_URL =
   "https://pub-6f377ff8bf0241edba33c58598adae5a.r2.dev/kp%20works";
 
@@ -11,7 +10,7 @@ const r2NewAsset = (filename: string): string =>
 export const HERO_IMAGE = r2Asset("hero-cinematic.jpg");
 export const PORTRAIT_IMAGE = r2Asset("portrait.jpg");
 export const SHOWREEL_SRC = r2Asset("Show reel.mp4");
-export const SHOWREEL_POSTER = r2NewAsset("Show reel thumbnail.jpg");
+export const SHOWREEL_POSTER = r2NewAsset("Show reel thumbnail.png");
 
 export type PhotoProject = {
   readonly id: string;
@@ -113,7 +112,7 @@ export const videoProjects: readonly VideoProject[] = [
   {
     id: "vd-self-shoot-edit",
     title: "Self Shoot and Edited",
-    videoSrc: r2NewAsset("Self Shoot and Editing.mp4"),
+    videoSrc: r2NewAsset("self shoot and edited.mp4"),
   },
   {
     id: "vd-disappearing",
@@ -128,9 +127,7 @@ export const videoProjects: readonly VideoProject[] = [
   {
     id: "vd-alpha-plus",
     title: "Alpha Plus",
-    videoSrc: r2Asset(
-      "Copy of competitive exams series books timeline.mp4",
-    ),
+    videoSrc: r2Asset("Copy of competitive exams series books timeline.mp4"),
   },
   {
     id: "vd-alpha-plus-1",
