@@ -91,7 +91,7 @@ export const photoProjects: readonly PhotoProject[] = [
 export const videoProjects: readonly VideoProject[] = [
   {
     id: "vd-self-shoot-showreel",
-    title: "Self Shoot + Editing Showreel",
+    title: "Self Shoot + Editingl",
     videoSrc: r2Asset("Copy of Self Shoot + Edit.mp4"),
   },
   {
