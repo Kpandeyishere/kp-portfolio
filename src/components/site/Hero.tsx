@@ -40,6 +40,7 @@ function MaskedLine({
 export function Hero() {
   const [modalOpen, setModalOpen] = useState(false);
   const reduced = useReducedMotion();
+
   const type = useMouseParallax(6);
   const card = useMouseParallax(24);
   const detail = useMouseParallax(16);
@@ -52,22 +53,37 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-[100svh] w-full overflow-hidden bg-[#000000]"
-      style={{ backgroundColor: "#000000" }}
+      className="relative isolate min-h-[100svh] w-full overflow-hidden !bg-black"
+      style={{
+        background: "#000000",
+        backgroundColor: "#000000",
+      }}
     >
-      {/* Pure black background */}
+      {/* Force solid black behind every hero element */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 z-0 bg-[#000000]"
+        className="pointer-events-none absolute inset-0 z-0 !bg-black"
+        style={{
+          background: "#000000",
+          backgroundColor: "#000000",
+        }}
       />
 
-      {/* Load curtain */}
+      {/* Black loading curtain */}
       <motion.div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-40 bg-[#000000]"
+        className="pointer-events-none absolute inset-0 z-40 !bg-black"
+        style={{
+          background: "#000000",
+          backgroundColor: "#000000",
+        }}
         initial={{ opacity: 1 }}
         animate={{ opacity: 0 }}
-        transition={{ duration: 1, delay: d(0.25), ease: "easeInOut" }}
+        transition={{
+          duration: 1,
+          delay: d(0.25),
+          ease: "easeInOut",
+        }}
       />
 
       {/* Editorial rail */}
@@ -85,9 +101,10 @@ export function Hero() {
         ))}
       </motion.ul>
 
+      {/* Main hero content */}
       <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1700px] flex-col justify-center px-5 pt-28 pb-28 md:px-10 lg:pt-32 lg:pb-24">
-        {/* Typography + showreel composition */}
         <div className="relative">
+          {/* Name typography */}
           <motion.h1
             className="relative z-10 font-display leading-[0.78] tracking-[0.01em] text-foreground"
             style={{ x: type.x, y: type.y }}
@@ -107,7 +124,7 @@ export function Hero() {
             </span>
           </motion.h1>
 
-          {/* Showreel card */}
+          {/* Showreel preview card */}
           <motion.div
             className="relative z-20 mt-8 lg:absolute lg:top-[6%] lg:right-[2%] lg:mt-0 lg:w-[30vw]"
             style={{ x: card.x, y: card.y }}
@@ -121,7 +138,11 @@ export function Hero() {
               y: 0,
               clipPath: "inset(0% 0% 0% 0%)",
             }}
-            transition={{ duration: 1.2, delay: d(1.1), ease: EASE }}
+            transition={{
+              duration: 1.2,
+              delay: d(1.1),
+              ease: EASE,
+            }}
           >
             <button
               type="button"
@@ -156,18 +177,23 @@ export function Hero() {
                 <span className="label-xs text-foreground">
                   Watch Showreel
                 </span>
+
                 <ArrowRight className="h-3.5 w-3.5 text-accent transition-transform duration-500 group-hover:translate-x-1.5" />
               </span>
             </button>
           </motion.div>
         </div>
 
-        {/* Role + supporting copy */}
+        {/* Role and supporting copy */}
         <motion.div
           className="relative z-10 mt-10 grid gap-6 lg:mt-12 lg:w-[62%] lg:grid-cols-12 lg:items-end"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: d(1.5), ease: EASE }}
+          transition={{
+            duration: 0.8,
+            delay: d(1.5),
+            ease: EASE,
+          }}
         >
           <div className="lg:col-span-5">
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
@@ -229,6 +255,7 @@ export function Hero() {
         </span>
       </motion.button>
 
+      {/* Showreel modal */}
       <VideoModal
         open={modalOpen}
         onClose={() => setModalOpen(false)}
