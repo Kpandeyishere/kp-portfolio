@@ -14,6 +14,9 @@ import { VideoModal } from "./VideoModal";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
+const HERO_BG =
+  "https://pub-6f377ff8bf0241edba33c58598adae5a.r2.dev/kp%20works/new/herobg.png";
+
 function MaskedLine({
   children,
   delay,
@@ -53,24 +56,51 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative isolate min-h-[100svh] w-full overflow-hidden !bg-black"
-      style={{
-        background: "#000000",
-        backgroundColor: "#000000",
-      }}
+      className="relative isolate min-h-[100svh] w-full overflow-hidden bg-black"
+      style={{ backgroundColor: "#000000" }}
     >
-      {/* Solid pure black background */}
+      {/* Hero background image with subtle blur */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
+      >
+        <div
+          className="absolute -inset-3"
+          style={{
+            backgroundImage: `url("${HERO_BG}")`,
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+            backgroundRepeat: "no-repeat",
+            filter: "blur(4px)",
+            transform: "scale(1.025)",
+          }}
+        />
+      </div>
+
+      {/* Dark overlay keeps the title readable */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-0"
-        style={{ background: "#000000" }}
+        style={{
+          background:
+            "linear-gradient(90deg, rgba(0,0,0,0.68) 0%, rgba(0,0,0,0.40) 48%, rgba(0,0,0,0.48) 100%), linear-gradient(180deg, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.10) 45%, rgba(0,0,0,0.78) 100%)",
+        }}
+      />
+
+      {/* Extra contrast behind the large name */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{
+          background:
+            "radial-gradient(ellipse at 35% 40%, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.12) 48%, transparent 75%)",
+        }}
       />
 
       {/* Black loading curtain */}
       <motion.div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-40"
-        style={{ background: "#000000" }}
+        className="pointer-events-none absolute inset-0 z-40 bg-black"
         initial={{ opacity: 1 }}
         animate={{ opacity: 0 }}
         transition={{
@@ -89,7 +119,7 @@ export function Hero() {
         transition={{ duration: 0.9, delay: d(2.0) }}
       >
         {["01 / Video", "02 / Photo", "03 / Motion"].map((item) => (
-          <li key={item} className="label-xs text-muted-foreground">
+          <li key={item} className="label-xs text-white/65">
             {item}
           </li>
         ))}
@@ -100,11 +130,15 @@ export function Hero() {
         <div className="relative">
           {/* Name typography */}
           <motion.h1
-            className="relative z-10 font-display leading-[0.78] tracking-[0.01em] text-foreground"
-            style={{ x: type.x, y: type.y }}
+            className="relative z-10 font-display leading-[0.78] tracking-[0.01em] text-white"
+            style={{
+              x: type.x,
+              y: type.y,
+              textShadow: "0 4px 35px rgba(0,0,0,0.45)",
+            }}
           >
             <span className="sr-only">
-              Kartik Pandey — Video Editor and Photo Editor
+              Kartik Pandey — Video Editor and Graphic Designer
             </span>
 
             <span
@@ -143,7 +177,7 @@ export function Hero() {
               data-cursor="play"
               onClick={() => setModalOpen(true)}
               aria-label="Watch showreel"
-              className="group relative block w-full overflow-hidden border border-border text-left shadow-[0_40px_120px_-40px_rgba(0,0,0,0.9)] transition-all duration-700 hover:-translate-y-1.5 hover:border-accent/60"
+              className="group relative block w-full overflow-hidden border border-white/20 text-left shadow-[0_40px_120px_-40px_rgba(0,0,0,0.9)] transition-all duration-700 hover:-translate-y-1.5 hover:border-accent/60"
             >
               <span className="vignette relative block aspect-[16/10] w-full overflow-hidden lg:aspect-[4/5]">
                 <img
@@ -155,23 +189,20 @@ export function Hero() {
 
                 <span
                   aria-hidden="true"
-                  className="absolute inset-0 bg-background/45 transition-colors duration-700 group-hover:bg-background/20"
+                  className="absolute inset-0 bg-black/35 transition-colors duration-700 group-hover:bg-black/15"
                 />
 
                 <span className="absolute inset-0 flex items-center justify-center">
                   <PlayButton size="md" />
                 </span>
 
-                <span className="label-xs absolute top-4 left-4 text-foreground/80">
+                <span className="label-xs absolute top-4 left-4 text-white/90">
                   Showreel
                 </span>
               </span>
 
-              <span className="flex items-center justify-between gap-3 border-t border-border bg-background/70 px-4 py-3 backdrop-blur-sm">
-                <span className="label-xs text-foreground">
-                  Watch Showreel
-                </span>
-
+              <span className="flex items-center justify-between gap-3 border-t border-white/15 bg-black/80 px-4 py-3 backdrop-blur-sm">
+                <span className="label-xs text-white">Watch Showreel</span>
                 <ArrowRight className="h-3.5 w-3.5 text-accent transition-transform duration-500 group-hover:translate-x-1.5" />
               </span>
             </button>
@@ -180,7 +211,7 @@ export function Hero() {
 
         {/* Role and introduction */}
         <motion.div
-          className="relative z-10 mt-10 grid gap-6 lg:mt-12 lg:w-[62%] lg:grid-cols-12 lg:items-end"
+          className="relative z-10 mt-10 grid gap-6 lg:mt-12 lg:w-[72%] lg:grid-cols-12 lg:items-end"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
@@ -191,14 +222,12 @@ export function Hero() {
         >
           <div className="lg:col-span-7">
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-              <p className="label-xs text-foreground">Video Editor</p>
+              <p className="label-xs text-white">Video Editor</p>
               <span aria-hidden="true" className="h-px w-8 bg-accent" />
-              <p className="label-xs text-foreground">
-                Graphic Designer
-              </p>
+              <p className="label-xs text-white">Graphic Designer</p>
             </div>
 
-            <div className="mt-5 max-w-2xl space-y-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+            <div className="mt-5 max-w-2xl space-y-4 text-base leading-relaxed text-white/75 md:text-lg">
               <p>
                 I'm a passionate Video Editor and Graphic Designer who loves
                 turning ideas into visually engaging stories. I specialize in
@@ -221,7 +250,7 @@ export function Hero() {
             <button
               type="button"
               onClick={() => setModalOpen(true)}
-              className="group label-xs link-underline flex items-center gap-3 text-foreground"
+              className="group label-xs link-underline flex items-center gap-3 text-white"
             >
               Watch Showreel
               <ArrowRight className="h-3.5 w-3.5 transition-transform duration-500 group-hover:translate-x-1.5" />
@@ -230,7 +259,7 @@ export function Hero() {
             <button
               type="button"
               onClick={() => scrollToSection("video-works")}
-              className="group label-xs link-underline flex items-center gap-3 text-muted-foreground transition-colors hover:text-foreground"
+              className="group label-xs link-underline flex items-center gap-3 text-white/75 transition-colors hover:text-white"
             >
               Explore Work
               <ArrowDown className="h-3.5 w-3.5 transition-transform duration-500 group-hover:translate-y-1.5" />
@@ -250,9 +279,9 @@ export function Hero() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: d(2.4) }}
       >
-        <span className="label-xs text-muted-foreground">Scroll</span>
+        <span className="label-xs text-white/60">Scroll</span>
 
-        <span className="relative block h-12 w-px overflow-hidden bg-border">
+        <span className="relative block h-12 w-px overflow-hidden bg-white/20">
           <motion.span
             className="absolute inset-x-0 top-0 block h-5 bg-accent"
             animate={reduced ? { y: 0 } : { y: ["-100%", "240%"] }}
