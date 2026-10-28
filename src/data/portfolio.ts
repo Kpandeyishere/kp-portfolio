@@ -5,10 +5,13 @@ const R2_BASE_URL =
 const r2Asset = (filename: string): string =>
   `${R2_BASE_URL}/${encodeURIComponent(filename)}`;
 
+const r2NewAsset = (filename: string): string =>
+  `${R2_BASE_URL}/new/${encodeURIComponent(filename)}`;
+
 export const HERO_IMAGE = r2Asset("hero-cinematic.jpg");
 export const PORTRAIT_IMAGE = r2Asset("portrait.jpg");
 export const SHOWREEL_SRC = r2Asset("Show reel.mp4");
-export const SHOWREEL_POSTER = r2Asset("Show reel thumbnail.jpg");
+export const SHOWREEL_POSTER = r2NewAsset("Show reel thumbnail.jpg");
 
 export type PhotoProject = {
   readonly id: string;
@@ -86,7 +89,6 @@ export const photoProjects: readonly PhotoProject[] = [
   },
 ];
 
-
 export const videoProjects: readonly VideoProject[] = [
   {
     id: "vd-self-shoot-showreel",
@@ -109,10 +111,10 @@ export const videoProjects: readonly VideoProject[] = [
     videoSrc: r2Asset("Copy of Eyes Masking Edit.mp4"),
   },
   {
-  id: "vd-self-shoot-edit",
-  title: "Self Shoot and Edited",
-  videoSrc: r2Asset("Copy of Self Shoot + Edit.mp4"),
-},
+    id: "vd-self-shoot-edit",
+    title: "Self Shoot and Edited",
+    videoSrc: r2NewAsset("Self Shoot and Editing.mp4"),
+  },
   {
     id: "vd-disappearing",
     title: "Disappearing Edit",
@@ -126,7 +128,9 @@ export const videoProjects: readonly VideoProject[] = [
   {
     id: "vd-alpha-plus",
     title: "Alpha Plus",
-    videoSrc: r2Asset("Copy of competitive exams series books timeline.mp4"),
+    videoSrc: r2Asset(
+      "Copy of competitive exams series books timeline.mp4",
+    ),
   },
   {
     id: "vd-alpha-plus-1",
