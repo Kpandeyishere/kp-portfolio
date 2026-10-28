@@ -13,37 +13,26 @@ export function SiteFooter() {
 
   return (
     <footer className="relative isolate overflow-hidden border-t border-white/10 bg-[#080808] px-5 pb-6 pt-14 text-white md:px-10 md:pt-20">
-      {/* Sharp hero background — no blur */}
+      {/* Clear, brighter hero background */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10"
       >
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-45"
+          className="absolute inset-0 bg-cover bg-center opacity-70"
           style={{ backgroundImage: `url("${HERO_BG}")` }}
         />
 
-        {/* Subtle dark overlay for readable text */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/80" />
+        {/* Lighter overlay — keeps the image visible */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/30 to-black/55" />
       </div>
 
-      {/* Subtle cinematic glow */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-32 -top-32 -z-10 h-80 w-80 rounded-full bg-white/[0.03] blur-[90px]"
-      />
-
       <div className="relative mx-auto max-w-[1600px]">
-        {/* Main footer */}
-        <div className="grid gap-12 border-b border-white/15 pb-12 md:grid-cols-[1.2fr_0.8fr] md:items-end md:pb-16">
+        <div className="grid gap-12 border-b border-white/20 pb-12 md:grid-cols-[1.2fr_0.8fr] md:items-end md:pb-16">
           <div className="min-w-0">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/20 px-3 py-2">
-              <Clapperboard
-                size={14}
-                strokeWidth={1.5}
-                className="text-white/80"
-              />
-              <span className="text-[10px] uppercase tracking-[0.22em] text-white/70">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/20 px-3 py-2">
+              <Clapperboard size={14} strokeWidth={1.5} className="text-white/90" />
+              <span className="text-[10px] uppercase tracking-[0.22em] text-white/85">
                 Independent Creative
               </span>
             </div>
@@ -57,24 +46,23 @@ export function SiteFooter() {
               <h2 className="font-display text-[clamp(2.5rem,8vw,7rem)] leading-[0.88] tracking-[-0.055em] transition-colors duration-300 group-hover:text-white/80">
                 KARTIK
                 <br />
-                PANDEY<span className="text-white/45">.</span>
+                PANDEY<span className="text-white/60">.</span>
               </h2>
             </button>
 
-            <p className="mt-6 max-w-sm text-sm leading-7 text-white/70 md:text-base">
+            <p className="mt-6 max-w-sm text-sm leading-7 text-white/85 md:text-base">
               Video Editor
-              <span className="mx-2 text-white/40">/</span>
+              <span className="mx-2 text-white/50">/</span>
               Photo Editor
               <br />
-              <span className="text-white/95">
+              <span className="text-white">
                 Every frame tells a story.
               </span>
             </p>
           </div>
 
-          {/* Navigation */}
           <div className="md:justify-self-end md:pb-1">
-            <p className="mb-5 text-[10px] uppercase tracking-[0.24em] text-white/50">
+            <p className="mb-5 text-[10px] uppercase tracking-[0.24em] text-white/70">
               Explore
             </p>
 
@@ -87,12 +75,12 @@ export function SiteFooter() {
                   key={link.id}
                   type="button"
                   onClick={() => scrollToSection(link.id)}
-                  className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/20 px-5 py-3 text-xs uppercase tracking-[0.12em] text-white/80 transition-all duration-300 hover:border-white/40 hover:bg-white/10 hover:text-white"
+                  className="group inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/20 px-5 py-3 text-xs uppercase tracking-[0.12em] text-white/90 transition-all duration-300 hover:border-white/50 hover:bg-white/15 hover:text-white"
                 >
                   {link.label}
                   <ArrowUpRight
                     size={13}
-                    className="opacity-60 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100"
+                    className="opacity-70 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100"
                   />
                 </button>
               ))}
@@ -101,7 +89,7 @@ export function SiteFooter() {
             <button
               type="button"
               onClick={scrollToTop}
-              className="mt-8 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-white/55 transition-colors hover:text-white"
+              className="mt-8 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-white/75 transition-colors hover:text-white"
             >
               Back to top
               <ArrowUp size={13} />
@@ -109,15 +97,14 @@ export function SiteFooter() {
           </div>
         </div>
 
-        {/* Copyright bar */}
-        <div className="flex flex-col gap-3 pt-5 text-[10px] uppercase tracking-[0.12em] text-white/50 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-3 pt-5 text-[10px] uppercase tracking-[0.12em] text-white/70 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} Kartik Pandey. All rights reserved.
           </p>
 
           <p>
             Crafted with intention
-            <span className="px-2 text-white/35">·</span>
+            <span className="px-2 text-white/45">·</span>
             Made for the frame
           </p>
         </div>
