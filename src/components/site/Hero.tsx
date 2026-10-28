@@ -1,10 +1,14 @@
 import { useState } from "react";
-import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "motion/react";
 import { ArrowDown, ArrowRight } from "lucide-react";
-import { HERO_IMAGE, SHOWREEL_SRC, SHOWREEL_POSTER } from "@/data/portfolio";
+import { SHOWREEL_SRC, SHOWREEL_POSTER } from "@/data/portfolio";
 import { useMouseParallax } from "@/hooks/use-mouse-parallax";
 import { scrollToSection } from "@/lib/scroll";
-import { FilmGrain } from "./FilmGrain";
 import { PlayButton } from "./PlayButton";
 import { VideoModal } from "./VideoModal";
 
@@ -36,7 +40,6 @@ function MaskedLine({
 export function Hero() {
   const [modalOpen, setModalOpen] = useState(false);
   const reduced = useReducedMotion();
-  const bg = useMouseParallax(12);
   const type = useMouseParallax(6);
   const card = useMouseParallax(24);
   const detail = useMouseParallax(16);
@@ -47,42 +50,21 @@ export function Hero() {
   const d = (value: number): number => (reduced ? 0 : value);
 
   return (
-    <section id="hero" className="relative min-h-[100svh] w-full overflow-hidden">
-      {/* Cinematic background plate */}
-      <motion.div
-        className="absolute inset-0 z-0"
-        style={{ x: bg.x, y: bg.y }}
-        initial={{ opacity: 0, scale: reduced ? 1 : 1.12 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{
-          opacity: { duration: 1.2, delay: d(0.25) },
-          scale: { duration: 2.4, delay: d(0.3), ease: EASE },
-        }}
-      >
-        <img
-          src={HERO_IMAGE}
-          alt="Cinematic night frame from a graded film sequence"
-          width={1920}
-          height={1088}
-          fetchPriority="high"
-          className="h-[108%] w-[108%] -translate-x-[4%] -translate-y-[4%] object-cover"
-        />
-      </motion.div>
-
+    <section
+      id="hero"
+      className="relative min-h-[100svh] w-full overflow-hidden bg-[#000000]"
+      style={{ backgroundColor: "#000000" }}
+    >
+      {/* Pure black background */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 z-0 bg-gradient-to-b from-background/70 via-background/25 to-background"
+        className="absolute inset-0 z-0 bg-[#000000]"
       />
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 z-0 bg-[radial-gradient(120%_100%_at_60%_38%,transparent_18%,var(--background)_100%)] opacity-70"
-      />
-      <FilmGrain position="absolute" opacity={0.2} />
 
       {/* Load curtain */}
       <motion.div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-40 bg-background"
+        className="pointer-events-none absolute inset-0 z-40 bg-[#000000]"
         initial={{ opacity: 1 }}
         animate={{ opacity: 0 }}
         transition={{ duration: 1, delay: d(0.25), ease: "easeInOut" }}
@@ -104,14 +86,20 @@ export function Hero() {
       </motion.ul>
 
       <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1700px] flex-col justify-center px-5 pt-28 pb-28 md:px-10 lg:pt-32 lg:pb-24">
-        {/* Overlapping type + media composition */}
+        {/* Typography + showreel composition */}
         <div className="relative">
           <motion.h1
             className="relative z-10 font-display leading-[0.78] tracking-[0.01em] text-foreground"
             style={{ x: type.x, y: type.y }}
           >
-            <span className="sr-only">Kartik Pandey — Video Editor and Photo Editor</span>
-            <span aria-hidden="true" className="block text-[21vw] lg:text-[15vw]">
+            <span className="sr-only">
+              Kartik Pandey — Video Editor and Photo Editor
+            </span>
+
+            <span
+              aria-hidden="true"
+              className="block text-[21vw] lg:text-[15vw]"
+            >
               <MaskedLine delay={d(0.55)}>KARTIK</MaskedLine>
               <MaskedLine delay={d(0.75)} className="lg:pl-[16vw]">
                 PANDEY
@@ -119,12 +107,20 @@ export function Hero() {
             </span>
           </motion.h1>
 
-          {/* Cinematic frame overlapping the typography */}
+          {/* Showreel card */}
           <motion.div
             className="relative z-20 mt-8 lg:absolute lg:top-[6%] lg:right-[2%] lg:mt-0 lg:w-[30vw]"
             style={{ x: card.x, y: card.y }}
-            initial={{ opacity: 0, y: reduced ? 0 : 60, clipPath: "inset(12% 0% 12% 0%)" }}
-            animate={{ opacity: 1, y: 0, clipPath: "inset(0% 0% 0% 0%)" }}
+            initial={{
+              opacity: 0,
+              y: reduced ? 0 : 60,
+              clipPath: "inset(12% 0% 12% 0%)",
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              clipPath: "inset(0% 0% 0% 0%)",
+            }}
             transition={{ duration: 1.2, delay: d(1.1), ease: EASE }}
           >
             <button
@@ -141,19 +137,25 @@ export function Hero() {
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.07]"
                 />
+
                 <span
                   aria-hidden="true"
                   className="absolute inset-0 bg-background/45 transition-colors duration-700 group-hover:bg-background/20"
                 />
+
                 <span className="absolute inset-0 flex items-center justify-center">
                   <PlayButton size="md" />
                 </span>
+
                 <span className="label-xs absolute top-4 left-4 text-foreground/80">
                   Showreel
                 </span>
               </span>
+
               <span className="flex items-center justify-between gap-3 border-t border-border bg-background/70 px-4 py-3 backdrop-blur-sm">
-                <span className="label-xs text-foreground">Watch Showreel</span>
+                <span className="label-xs text-foreground">
+                  Watch Showreel
+                </span>
                 <ArrowRight className="h-3.5 w-3.5 text-accent transition-transform duration-500 group-hover:translate-x-1.5" />
               </span>
             </button>
@@ -173,6 +175,7 @@ export function Hero() {
               <span aria-hidden="true" className="h-px w-8 bg-accent" />
               <p className="label-xs text-foreground">Photo Editor</p>
             </div>
+
             <p className="mt-5 max-w-sm text-base text-muted-foreground md:text-lg">
               Crafting cinematic cuts, colour and motion.
             </p>
@@ -187,6 +190,7 @@ export function Hero() {
               Watch Showreel
               <ArrowRight className="h-3.5 w-3.5 transition-transform duration-500 group-hover:translate-x-1.5" />
             </button>
+
             <button
               type="button"
               onClick={() => scrollToSection("video-works")}
@@ -199,6 +203,7 @@ export function Hero() {
         </motion.div>
       </div>
 
+      {/* Scroll indicator */}
       <motion.button
         type="button"
         onClick={() => scrollToSection("video-works")}
@@ -210,11 +215,16 @@ export function Hero() {
         transition={{ duration: 0.8, delay: d(2.4) }}
       >
         <span className="label-xs text-muted-foreground">Scroll</span>
+
         <span className="relative block h-12 w-px overflow-hidden bg-border">
           <motion.span
             className="absolute inset-x-0 top-0 block h-5 bg-accent"
             animate={reduced ? { y: 0 } : { y: ["-100%", "240%"] }}
-            transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+            transition={{
+              duration: 2.2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
           />
         </span>
       </motion.button>
