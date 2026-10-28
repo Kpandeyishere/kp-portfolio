@@ -9,7 +9,8 @@ const r2NewAsset = (filename: string): string =>
 
 export const HERO_IMAGE = r2Asset("hero-cinematic.jpg");
 export const PORTRAIT_IMAGE = r2Asset("portrait.jpg");
-export const SHOWREEL_SRC = r2Asset("Show reel.mp4");
+export const SHOWREEL_SRC =
+  `${R2_BASE_URL}/new/Showreel%20-%20Kartik%20Pandey.mp4`;
 export const SHOWREEL_POSTER = r2NewAsset("Show reel thumbnail.png");
 
 export type PhotoProject = {
