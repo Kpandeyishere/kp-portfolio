@@ -203,7 +203,9 @@ export function Hero() {
             </div>
 
             <p className="mt-5 max-w-sm text-base text-muted-foreground md:text-lg">
-              Crafting cinematic cuts, colour and motion.
+              I'm a passionate Video Editor and Graphic Designer who loves turning ideas into visually engaging stories. I specialize in creating high-quality videos, engaging short-form content, cinematic edits, and eye-catching thumbnails for social media platforms.
+
+With experience in creating content for YouTube and Instagram, I focus on combining creativity, storytelling, and modern editing techniques to make every project stand out. My goal is to help creators and brands capture attention, engage their audience, and bring their vision to life.
             </p>
           </div>
 
