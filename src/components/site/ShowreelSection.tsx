@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from "react";
 import { SHOWREEL_POSTER, SHOWREEL_SRC } from "@/data/portfolio";
 import { VideoModal } from "./VideoModal";
@@ -17,7 +18,9 @@ export function ShowreelSection() {
     video.defaultMuted = true;
 
     const tryPlay = () => {
-      video.play().catch((error) => {
+      if (document.visibilityState !== "visible") return;
+
+      void video.play().catch((error) => {
         console.warn("Showreel autoplay was blocked:", error);
       });
     };
@@ -68,6 +71,7 @@ export function ShowreelSection() {
               ref={videoRef}
               className="absolute inset-0 h-full w-full object-cover"
               src={SHOWREEL_SRC}
+              poster={SHOWREEL_POSTER}
               autoPlay
               muted
               loop

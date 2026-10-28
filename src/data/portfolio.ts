@@ -8,7 +8,7 @@ const r2Asset = (filename: string): string =>
 export const HERO_IMAGE = r2Asset("hero-cinematic.jpg");
 export const PORTRAIT_IMAGE = r2Asset("portrait.jpg");
 export const SHOWREEL_SRC = r2Asset("Show reel.mp4");
-export const SHOWREEL_POSTER = HERO_IMAGE;
+export const SHOWREEL_POSTER = r2Asset("Show reel thumbnail.jpg");
 
 export type PhotoProject = {
   readonly id: string;
@@ -110,7 +110,7 @@ export const videoProjects: readonly VideoProject[] = [
   {
     id: "vd-self-shoot-edit",
     title: "Self Shoot and Editing",
-    videoSrc: r2Asset("Copy of Self Shoot + Edit.mp4"),
+    videoSrc: r2Asset("Self Shoot and Editing.mp4"),
   },
   {
     id: "vd-disappearing",
@@ -187,7 +187,7 @@ export const processSteps: readonly {
   },
 ];
 
-export const CONTACT_URL = "https://kphere.carrd.co/#";
+export const CONTACT_URL = "kartikpandeywork@gmail.com";
 
 export const navLinks: readonly { label: string; id: string }[] = [
   { label: "Video Editing", id: "video-works" },
