@@ -86,6 +86,7 @@ export const photoProjects: readonly PhotoProject[] = [
   },
 ];
 
+
 export const videoProjects: readonly VideoProject[] = [
   {
     id: "vd-self-shoot-showreel",
@@ -110,7 +111,7 @@ export const videoProjects: readonly VideoProject[] = [
   {
     id: "vd-self-shoot-edit",
     title: "Self Shoot and Editing",
-    videoSrc: r2Asset("Self Shoot and Editing.mp4"),
+    videoSrc: r2Asset("Copy of Self Shoot + Edit.mp4"),
   },
   {
     id: "vd-disappearing",
@@ -125,12 +126,12 @@ export const videoProjects: readonly VideoProject[] = [
   {
     id: "vd-alpha-plus",
     title: "Alpha Plus",
-    videoSrc: r2Asset("Alpha Plus.mp4"),
+    videoSrc: r2Asset("Copy of competitive exams series books timeline.mp4"),
   },
   {
     id: "vd-alpha-plus-1",
     title: "Alpha Plus 1",
-    videoSrc: r2Asset("Alpha Plus 1.mp4"),
+    videoSrc: r2Asset("video-01.mp4"),
   },
 ];
 
