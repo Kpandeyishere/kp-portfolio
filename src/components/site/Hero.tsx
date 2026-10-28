@@ -59,24 +59,18 @@ export function Hero() {
         backgroundColor: "#000000",
       }}
     >
-      {/* Force solid black behind every hero element */}
+      {/* Solid pure black background */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0 !bg-black"
-        style={{
-          background: "#000000",
-          backgroundColor: "#000000",
-        }}
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{ background: "#000000" }}
       />
 
       {/* Black loading curtain */}
       <motion.div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-40 !bg-black"
-        style={{
-          background: "#000000",
-          backgroundColor: "#000000",
-        }}
+        className="pointer-events-none absolute inset-0 z-40"
+        style={{ background: "#000000" }}
         initial={{ opacity: 1 }}
         animate={{ opacity: 0 }}
         transition={{
@@ -184,7 +178,7 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Role and supporting copy */}
+        {/* Role and introduction */}
         <motion.div
           className="relative z-10 mt-10 grid gap-6 lg:mt-12 lg:w-[62%] lg:grid-cols-12 lg:items-end"
           initial={{ opacity: 0, y: 20 }}
@@ -195,21 +189,35 @@ export function Hero() {
             ease: EASE,
           }}
         >
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-7">
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
               <p className="label-xs text-foreground">Video Editor</p>
               <span aria-hidden="true" className="h-px w-8 bg-accent" />
-              <p className="label-xs text-foreground">Photo Editor</p>
+              <p className="label-xs text-foreground">
+                Graphic Designer
+              </p>
             </div>
 
-            <p className="mt-5 max-w-sm text-base text-muted-foreground md:text-lg">
-              I'm a passionate Video Editor and Graphic Designer who loves turning ideas into visually engaging stories. I specialize in creating high-quality videos, engaging short-form content, cinematic edits, and eye-catching thumbnails for social media platforms.
+            <div className="mt-5 max-w-2xl space-y-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+              <p>
+                I'm a passionate Video Editor and Graphic Designer who loves
+                turning ideas into visually engaging stories. I specialize in
+                creating high-quality videos, engaging short-form content,
+                cinematic edits, and eye-catching thumbnails for social media
+                platforms.
+              </p>
 
-With experience in creating content for YouTube and Instagram, I focus on combining creativity, storytelling, and modern editing techniques to make every project stand out. My goal is to help creators and brands capture attention, engage their audience, and bring their vision to life.
-            </p>
+              <p>
+                With experience in creating content for YouTube and Instagram,
+                I focus on combining creativity, storytelling, and modern
+                editing techniques to make every project stand out. My goal is
+                to help creators and brands capture attention, engage their
+                audience, and bring their vision to life.
+              </p>
+            </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-x-10 gap-y-4 lg:col-span-4">
+          <div className="flex flex-wrap items-center gap-x-10 gap-y-4 lg:col-span-5">
             <button
               type="button"
               onClick={() => setModalOpen(true)}
