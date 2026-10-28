@@ -1,5 +1,4 @@
 import { ArrowRight, Instagram, Linkedin, Mail } from "lucide-react";
-import { CONTACT_URL } from "@/data/portfolio";
 import { Reveal } from "./Reveal";
 
 const contactLinks = [
@@ -38,9 +37,9 @@ export function Contact() {
 
         <Reveal delay={0.1}>
           <a
-            href={CONTACT_URL}
+            href="https://www.instagram.com/kpedits_07/"
             target="_blank"
-            rel="noreferrer noopener"
+            rel="noopener noreferrer"
             data-cursor="link"
             className="group inline-flex items-center gap-3 border-b border-border py-2 text-sm text-muted-foreground transition-colors hover:border-accent hover:text-foreground"
           >
@@ -62,7 +61,7 @@ export function Contact() {
                 rel={
                   link.label === "Email"
                     ? undefined
-                    : "noreferrer noopener"
+                    : "noopener noreferrer"
                 }
                 data-cursor="link"
                 className="group flex h-full min-h-24 items-center gap-4 border border-border p-5 transition-colors duration-300 hover:border-accent"
