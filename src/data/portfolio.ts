@@ -96,12 +96,12 @@ export const videoProjects: readonly VideoProject[] = [
   },
   {
     id: "vd-client-gym",
-    title: "Client Gym Edit",
+    title: "Client's Gym Edit",
     videoSrc: r2Asset("Client Gym Edit.mp4"),
   },
   {
     id: "vd-client-gym-2",
-    title: "Client Gym Edit 2",
+    title: "Client's Gym Edit 2",
     videoSrc: r2Asset("Copy of Client Gym Edit (1).mp4"),
   },
   {
