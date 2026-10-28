@@ -109,10 +109,10 @@ export const videoProjects: readonly VideoProject[] = [
     videoSrc: r2Asset("Copy of Eyes Masking Edit.mp4"),
   },
   {
-    id: "vd-self-shoot-edit",
-    title: "Self Shoot and Editing",
-    videoSrc: r2Asset("Copy of Self Shoot + Edit.mp4"),
-  },
+  id: "vd-self-shoot-edit",
+  title: "Self Shoot and Edited",
+  videoSrc: r2Asset("Copy of Self Shoot + Edit.mp4"),
+},
   {
     id: "vd-disappearing",
     title: "Disappearing Edit",
